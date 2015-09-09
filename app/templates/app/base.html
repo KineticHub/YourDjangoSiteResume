@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <title>{{ attendee.name }} @ DjangoCon 2015</title>
 
     {% load staticfiles %}
@@ -18,177 +18,285 @@
     <!-- Custom CSS -->
     <!--<link href="css/freelancer.css" rel="stylesheet">-->
     <link href="{% static 'app/css/freelancer.css' %}" rel="stylesheet">
-    
+
     <link href="{% static 'app/css/site.css' %}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    
+
     <link href="{% static 'app/font-awesome/css/font-awesome.min.css' app/%}" rel="stylesheet" type="text/css">
 </head>
 <body id="page-top" class="index">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#page-top">DjangoCon 2015</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>                    
-                    <li class="page-scroll">
-                        <a href="#about">About this Challenge</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Follow me!</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#page-top">DjangoCon 2015</a>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
 
-    <!-- Header -->
-    <header>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#about">About this Challenge</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#contact">Follow me!</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="headshot img-responsive" src="{{ attendee.headshot_url }}" alt="">
+                <div class="intro-text">
+                    <span class="name">{{ attendee.name }}</span>
+                    <hr class="star-light">
+                    <span class="skills">{{ attendee.title }}</span>
+                </div>
+                <div class="intro-text">
+                    <span class="skills">{{ attendee.bio }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Follow me!</h2>
+                <hr class="star-primary">
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3>Twitter: <a href="http://twitter.com/{{ attendee.twitter_username }}">{{ attendee.twitter_username }}</a></h3>
+                    {% if attendee.email %}
+                        <h3>Email: <a href="mailto:{{ attendee.email }}">{{ attendee.email }}</a></h3>
+                    {% endif %}
+                    <h3>GitHub: <a href="http://github.com/{{ attendee.github_username }}">{{ attendee.github_username }}</a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+
+
+<!-- About Section -->
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>What's this all about?</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2">
+                <p>You probably didn’t know that the Microsoft Cloud provides support for not only Windows and .NET, but also Linux, Node.js, PHP, Java, Python, and more. Microsoft Azure is the open source friendly cloud platform designed to empower you to do more. </p>
+            </div>
+            <div class="col-lg-4">
+                <p>This app was deployed as part of the <a href="http://djangocon.azurewebsites.net/">Azure DjangoCon Code Challenge</a>. </p>
+                <p>Azure has great support for hosting Python without worrying about managing a VM and makes a great option for your Django apps.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Technology Terms and Meanings</h2>
+                <hr class="star-primary">
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <dl>
+                        <dt>Big Data</dt>
+                        <dd>
+                            collection of data sets so large and complex that it becomes difficult to process using on-hand database management tools
+                        </dd>
+                        <dt>Millennials</dt>
+                        <dd>
+                            cohort following Generation X (also known as the Millennial Generation[1] or Generation Y)
+                        </dd>
+                        <dt>"The Internet of Things” aka “IoT”</dt>
+                        <dd>
+                            uniquely identifiable objects and their virtual representations in an Internet-like structure
+                        </dd>
+                        <dt>Thought Leader</dt>
+                        <dd>
+                            individual or firm that is recognized as an authority in a specialized field and whose expertise is sought and often rewarded
+                        </dd>
+                        <dt>Responsive Web Design</dt>
+                        <dd>
+                            Web design approach aimed at crafting sites to provide an optimal viewing experience
+                        </dd>
+                        <dt>Growth Hacking</dt>
+                        <dd>
+                            marketing technique developed by technology startups which uses creativity, analytical thinking, and social metrics to sell products and gain exposure
+                        </dd>
+                        <dt>Native Advertising</dt>
+                        <dd>
+                            online advertising method in which the advertiser attempts to gain attention by providing content in the context of the user’s experience
+                        </dd>
+                        <dt>Deep Linking</dt>
+                        <dd>
+                            using a hyperlink that links to a specific, generally searchable or indexed, piece of web content on a website rather than the home page
+                        </dd>
+                        <dt>Engagement Marketing</dt>
+                        <dd>
+                            marketing strategy that directly engages consumers and invites and encourages consumers to participate in the evolution of a brand
+                        </dd>
+                        <dt>Omnichannel Retailing</dt>
+                        <dd>
+                            the evolution of multi-channel retailing, but concentrated more on a seamless approach to the consumer experience through all available shopping channels
+                        </dd>
+                        <dt>Programmatic Marketing</dt>
+                        <dd>
+                            marketing campaigns that are automatically triggered by any type of event and deployed according to a set of rules applied by software and algorithms
+                        </dd>
+                        <dt>Immersive Design</dt>
+                        <dd>
+                            the activity of a new generation of designers who work inclusively across all story-driven media
+                        </dd>
+                        <dt>Selfie</dt>
+                        <dd>
+                            type of self-portrait photograph, typically taken with a hand-held digital camera or camera phone
+                        </dd>
+                        <dt>Other Terms</dt>
+                        <dd>
+                            Localization, Customer-centricity, Click Fraud, Artificial Intelligence, Brand Storytelling,
+                            Newsjacking, Rich Media, Viewability, Neuromorphics, Media Agnostic,
+                        </dd>
+                    </dl>
+
+
+
+                </div>
+            </div>
+            <div class="col-lg-12 text-center">
+                <h2>Trending Twitter Hashtags</h2>
+                <hr class="star-primary">
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul>
+                        <li>#ladygo, #agqr, #westandwithpakmedia, #composure, #voteattackauryn, #sexfilm, #hawkersplaystation, #fullvideo, #ag_5stars, #tronoverano, #inspiredbyxtiandela, #yinnoweliketoparty, #macbookair, #macbook, #surfacepro3, #izmir, #qapel, #wkow, #erkencitayfa, #ontariorealestate, #bajaloya, #tumedicina, #chestnutpark, #princeedwardcounty, #proposalnisergio, #expensiveamericana, #facefoward, #linenews, #gambianoproblem, #minguk, #assignment, #nominobabyk, #in, #mencintaimu, #neonicotinoids, #evil, #sunshinevideo, #dick, #cinemadekhemamma, #mpnaucalpan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12 text-center">
+                <h2>Trending Facebook News</h2>
+                <hr class="star-primary">
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul>
+                        <li><a href="https://www.facebook.com/topic/Matt-Damon/112697638741238?source=whfrt&position=1&trqid=6192469653281655311">Matt Damon</a>
+                        <><a href="https://www.facebook.com/topic/Siberia/111932195484397?source=whfrt&position=2&trqid=6192469653281655311">Siberia</a>
+                        <><a href="https://www.facebook.com/topic/Hermitage-Pennsylvania/107809609239213?source=whfrt&position=3&trqid=6192469653281655311">Hermitage Pennsylvania</a>
+                        <><a href="https://www.facebook.com/topic/Jonathan-Batiste/109498325736220?source=whrt&position=4&trqid=6192469653281655311">Jonathan Batiste</a>
+                        <><a href="https://www.facebook.com/topic/Krampus/363518367160260?source=whrt&position=5&trqid=6192469653281655311">Krampus</a>
+                        <><a href="https://www.facebook.com/topic/England/105519482815472?source=whrt&position=6&trqid=6192469653281655311">England</a>
+                        <><a href="https://www.facebook.com/topic/The-Biggest-Loser/132849696752944?source=whrt&position=7&trqid=6192469653281655311">The Biggest Loser</a>
+                        <><a href="https://www.facebook.com/topic/Warren-Buffett/105592802806886?source=whrt&position=8&trqid=6192469653281655311">Warren Buffet</a>
+                        <><a href="https://www.facebook.com/topic/Tom-Hardy/107670142595426?source=whrt&position=9&trqid=6192469653281655311">Tom Hardy</a>
+                        <><a href="https://www.facebook.com/topic/Dania-Beach-Florida/107914259236736?source=whrt&position=10&trqid=6192469653281655311">Dania Beach, Florida</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-6">
+                    <h3>Location</h3>
+                    <p>DjangoCon 2015 <br />
+                        Austin, Texas</p>
+                </div>
+                <div class="footer-col col-md-6">
+                    <h3>About this theme</h3>
+                    <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-below">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="headshot img-responsive" src="{{ attendee.headshot_url }}" alt="">
-                    <div class="intro-text">
-                        <span class="name">{{ attendee.name }}</span>
-                        <hr class="star-light">
-                        <span class="skills">{{ attendee.title }}</span>
-                    </div>
-                    <div class="intro-text">
-                        <span class="skills">{{ attendee.bio }}</span>
-                    </div>                    
+                    Copyright &copy; {{ attendee.name }} {{ year }}
                 </div>
             </div>
         </div>
-    </header>
-
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Follow me!</h2>
-                    <hr class="star-primary">
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h3>Twitter: <a href="http://twitter.com/{{ attendee.twitter_username }}">@{{ attendee.twitter_username }}</a></h3>
-                        {% if attendee.email %}
-                            <h3>Email: <a href="mailto:{{ attendee.email }}">{{ attendee.email }}</a></h3>
-                        {% endif %}
-                        <h3>GitHub: <a href="http://github.com/{{ attendee.github_username }}">{{ attendee.github_username }}</a></h3>                            
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-
-    
-    <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>What's this all about?</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>You probably didn’t know that the Microsoft Cloud provides support for not only Windows and .NET, but also Linux, Node.js, PHP, Java, Python, and more. Microsoft Azure is the open source friendly cloud platform designed to empower you to do more. </p>
-                </div>
-                <div class="col-lg-4">
-                    <p>This app was deployed as part of the <a href="http://djangocon.azurewebsites.net/">Azure DjangoCon Code Challenge</a>. </p>
-                    <p>Azure has great support for hosting Python without worrying about managing a VM and makes a great option for your Django apps.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-6">
-                        <h3>Location</h3>
-                        <p>DjangoCon 2015 <br />
-                        Austin, Texas</p>
-                    </div>
-                    <div class="footer-col col-md-6">
-                        <h3>About this theme</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; {{ attendee.name }} {{ year }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll visible-xs visible-sm">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
     </div>
+</footer>
 
-    <script type="text/javascript">
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll visible-xs visible-sm">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
 
-        // This is Azure Application Insights.  http://azure.microsoft.com/en-us/services/application-insights/
-        // We're tracking views and showing them on a dashboard at Microsoft booth at DjangoCon. 
+<script type="text/javascript">
 
-        var appInsights=window.appInsights||function(config){
-            function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
-        }({
-            instrumentationKey:"be2c3904-602e-410b-8898-979ad77938dd"
-        });
-        window.appInsights=appInsights;
-        appInsights.trackPageView();
-    </script>
+    // This is Azure Application Insights.  http://azure.microsoft.com/en-us/services/application-insights/
+    // We're tracking views and showing them on a dashboard at Microsoft booth at DjangoCon.
 
-    <!-- jQuery -->
-    <script src="{% static 'app/js/jquery.js' %}"></script>
+    var appInsights=window.appInsights||function(config){
+                function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
+            }({
+                instrumentationKey:"be2c3904-602e-410b-8898-979ad77938dd"
+            });
+    window.appInsights=appInsights;
+    appInsights.trackPageView();
+</script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+<!-- jQuery -->
+<script src="{% static 'app/js/jquery.js' %}"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="{% static 'app/js/classie.js' %}"></script>
-    <script src="{% static 'app/js/cbpAnimatedHeader.min.js' %}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'app/js/bootstrap.min.js' %}"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="{% static 'app/js/freelancer.js' %}"></script>
+<!-- Plugin JavaScript -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="{% static 'app/js/classie.js' %}"></script>
+<script src="{% static 'app/js/cbpAnimatedHeader.min.js' %}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{% static 'app/js/freelancer.js' %}"></script>
 
 </body>
 

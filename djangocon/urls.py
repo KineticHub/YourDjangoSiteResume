@@ -13,6 +13,8 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('',
 
     url(r'^$', 'app.views.home', name='home'),
+    url(r'^name/$', 'app.views.get_name', name='name'),
+    url(r'^draw/$', 'app.views.get_name', name='name'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

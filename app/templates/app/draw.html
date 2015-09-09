@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Draw Me</title>
+    <style>
+        *{margin:0;padding:0;}body{background:#2980B9;}
+        canvas{
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            border: 1px solid #000000;
+            background-color: white;
+        }
+        #container{
+            position: absolute;
+            top: 30%;
+            margin-top: -200px;/* half of #content height*/
+            left: 0;
+            width: 100%;
+        }
+        #content {
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 500px;
+        }
+    </style>
+    <script type="text/javascript">
+        function drawCircle(canvas, letter_hex, color_hex, x, y) {
+            var centerX = x;
+            var centerY = y;
+            var radius = letter_hex/4;
+
+            var context = canvas.getContext("2d");
+            context.beginPath();
+            context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+            context.fillStyle = color_hex;
+            context.fill();
+{#            context.lineWidth = 5;#}
+            context.strokeStyle = '#003300';
+            context.stroke();
+        }
+        function drawRect(canvas, letter_hex, color_hex, x, y) {
+            var context = canvas.getContext("2d");
+            context.fillStyle = color_hex;
+            context.fillRect(x, y, letter_hex, letter_hex);
+        }
+        function drawName() {
+            var CSS_COLOR_NAMES = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
+            var name = "{{ name }}";
+            var canvas = document.getElementById("name_canvas");
+            var circles = 0;
+            var rectangles = 0;
+            var x = 0;
+            var y = 0;
+            for (var i = 0, len = name.length; i < len - 2; i+=2) {
+                current_code = name.charCodeAt(i);
+                letter_hex = current_code.toString(16);
+                color_hex = CSS_COLOR_NAMES[current_code];
+                if (current_code % 2 == 0) {
+                    x = current_code/2;
+                    y = current_code/12 + 20;
+                } else {
+                    x = current_code*2;
+                    y = current_code/6 + 30;
+                }
+                if (current_code < name.charCodeAt(i-1)) {
+                    if (current_code % 7 == 0) {
+                        if (current_code % 8 == 0) {
+                           x += current_code/6;
+                        }
+                        y += 40;
+                    }
+                    if (x < 30) {
+                        x += 40;
+                    } else if (x > canvas.width - 50) {
+                        x -= 100;
+                    }
+                    drawRect(canvas, letter_hex, color_hex, x, y);
+                    rectangles++;
+                } else {
+                    if (current_code % 3 == 0) {
+                        if (current_code % 5 == 0) {
+                           x -= current_code/3;
+                        }
+                        y += 70;
+                    }
+                    if (x < 50) {
+                        x += 100;
+                    } else if (x > canvas.width - 50) {
+                        x -= 100;
+                    }
+                    drawCircle(canvas, letter_hex, color_hex, x, y);
+                    circles++;
+                }
+            }
+            for (var i = 0, len = name.length; i < len - 2; i+=2) {
+                current_code = name.charCodeAt(i);
+                letter_hex = current_code.toString(16);
+                color_hex = CSS_COLOR_NAMES[current_code];
+                if (current_code % 2 == 0) {
+                    x = current_code/2;
+                    y = current_code/12 + 20;
+                } else {
+                    x = current_code*2;
+                    y = current_code/6 + 30;
+                }
+                if (current_code < name.charCodeAt(i-1)) {
+                    if (current_code % 7 == 0) {
+                        if (current_code % 8 == 0) {
+                           x += current_code/6;
+                        }
+                        y += 40;
+                    }
+                    if (x < 30) {
+                        x += 40;
+                    } else if (x > canvas.width - 50) {
+                        x -= 100;
+                    }
+                    drawCircle(canvas, letter_hex, color_hex, x, y);
+                    circles++;
+                } else {
+                    if (current_code % 3 == 0) {
+                        if (current_code % 5 == 0) {
+                           x -= current_code/3;
+                        }
+                        y += 70;
+                    }
+                    if (x > 50) {
+                        x -= 50;
+                    } else if (x < canvas.width - 50) {
+                        x += 50;
+                    }
+                    drawRect(canvas, letter_hex, color_hex, x, y);
+                    rectangles++;
+                }
+            }
+{#            alert(rectangles);#}
+{#            alert(circles);#}
+        }
+        window.onload = drawName;
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        <canvas id="name_canvas"></canvas>
+    </div></div>
+</body>
+</html>
